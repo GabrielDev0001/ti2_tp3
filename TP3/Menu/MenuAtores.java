@@ -29,7 +29,7 @@ public class MenuAtores {
 
             System.out.print("\nOpção: ");
             try {
-                opcao = console.nextInt();
+                opcao = console.nextInt();console.nextLine();
             } catch(NumberFormatException e) {
                 opcao = -1;
             }
@@ -78,7 +78,7 @@ public class MenuAtores {
                 System.out.println(i + " " + s[i].getNome());
             }
             System.out.println("Digite o numero(Digite 0 caso não esteja na lista): ");
-            numSerie = console.nextInt();
+            numSerie = console.nextInt();console.nextLine();
             if(numSerie != 0){
                 return;
             }
@@ -128,7 +128,7 @@ public class MenuAtores {
                 System.out.println(i + " " + e[i].getNome());
             }
 
-            int numEp = console.nextInt();
+            int numEp = console.nextInt();console.nextLine();
 
             boolean excluido = arqAtor.excluirAtor(e[numEp].getId());
             if (excluido) {
@@ -163,7 +163,7 @@ public class MenuAtores {
                 System.out.println(d + " " + s[i].getNome());
             }
             System.out.println("Digite o numero(Digite 0 caso não esteja na lista): ");
-            int num = console.nextInt();
+            int num = console.nextInt();console.nextLine();
             console.nextLine();
             if (num > 0 && s[num] != null) {
                 Series[] d = arqSeries.readAtoSeries(num);
