@@ -1,10 +1,9 @@
 package Menu;
-import java.time.LocalDate;
-import java.util.Scanner;
-import Entidades.*;
-import java.time.format.DateTimeFormatter;
-//import javax.sound.midi.Soundbank;
 import Arquivo.*;
+import Entidades.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 //import com.sun.org.apache.xpath.internal.SourceTree;
 //import com.sun.source.doctree.IdentifierTree;
@@ -101,6 +100,7 @@ public class MenuEpisodio {
         do {
             System.out.print("\nNome (min. de 4 letras ou vazio para cancelar): ");
             nome = console.nextLine();
+            nome = MenuAtores.format(nome);
             if(nome.length()==0)
                 return;
             if(nome.length()<4)

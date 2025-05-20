@@ -91,6 +91,7 @@ public class MenuAtores {
         do {
             System.out.print("\nNome (min. de 4 letras ou vazio para cancelar): ");
             nome = console.nextLine();
+            nome = format(nome);
             if(nome.length()==0)
                 return;
             if(nome.length()<4)
