@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class ArquivoAtor extends Arquivo<Ator>{
     ArvoreBMais <ParIdAtor> indiceNomeAtor;
+    
 
     ArquivoSeries arqSeries;
 
