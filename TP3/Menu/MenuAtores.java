@@ -2,6 +2,7 @@ package Menu;
 
 import Arquivo.*;
 import Entidades.*;
+import java.text.Normalizer;
 import java.util.Scanner;
 
 public class MenuAtores {
@@ -109,6 +110,13 @@ public class MenuAtores {
                 System.out.println("Erro do sistema. Não foi possível incluir o ator!");
             }
         }else System.out.println("Inclusão cancelada");
+    }
+
+    //método que remove acentos e passa para minusculo
+    public static String format(String texto) {
+        return Normalizer.normalize(texto, Normalizer.Form.NFD)
+            .replaceAll("[^\\p{ASCII}]", "")
+            .toLowerCase();
     }
 
     public void excluirAtor() {
