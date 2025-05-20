@@ -18,6 +18,7 @@ public class ArquivoSeries extends Arquivo<Series> {
         super("series", Series.class.getConstructor());
         
        new File("./dados/series").mkdirs();
+       new File("./dados/ator").mkdirs();
 
     indiceNomeSerie = new ArvoreBMais<>(
         ParNomeSerieId.class.getConstructor(), 
@@ -27,12 +28,12 @@ public class ArquivoSeries extends Arquivo<Series> {
     indiceIdAtor_IdSerie = new ArvoreBMais<>(
         ParIdId.class.getConstructor(),
         5,
-        "./dados/episodio/indiceIdAtors_IdSerie.db"
+        "./dados/ator/indiceIdAtors_IdSerie.db"
       );
     indiceIdSerie_IdAtor = new ArvoreBMais<>(
         ParIdId.class.getConstructor(),
         5,
-        "./dados/atores/indiceIdSeries_IdAtores.db"
+        "./dados/ator/indiceIdSeries_IdAtores.db"
       );
     
     }
