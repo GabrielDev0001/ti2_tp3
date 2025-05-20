@@ -1,17 +1,22 @@
-# 🎬 PUCFlix 3..0
+# 🎬 PUCFlix 3.0
 
-PUCFlix é um projeto desenvolvido para o Trabalho Prático 3 da disciplina de **Algoritmos e Estruturas de Dados 3 (AEDS 3)** na **PUC Minas**. Esta versão expande o sistema desenvolvido no TP1 e TP2, implementando o **Índice invertido**, com o uso de **Árvores Invertidas** para garantir consultas eficientes e consistência dos dados.
+PUCFlix é um projeto desenvolvido para o Trabalho Prático 3 da disciplina de **Algoritmos e Estruturas de Dados 3 (AEDS 3)** na **PUC Minas**. Esta versão expande o sistema desenvolvido no TP1 e TP2, implementando o **Índice Invertido** para otimizar buscas por palavras-chave nos títulos de **séries**, **episódios** e **atores**, utilizando o conceito de **TFxIDF** (Term Frequency x Inverse Document Frequency) para ordenar as buscas de forma eficiente.
 
 ## 🚀 Funcionalidades
 
 Nesta nova versão, o PUCFlix mantém as operações de **CRUD** para séries, episódios, e atores, além de adicionar:
+
+### Índice Invertido
+- O sistema agora utiliza **Índice Invertido** para buscar por termos presentes nos títulos de **séries**, **episódios** e **nomes de atores**.
+- As buscas são realizadas através de palavras-chave, e os resultados são ordenados de acordo com o valor de **TFxIDF**, o que garante uma maior relevância nas respostas.
+- O índice é atualizado sempre que uma série, episódio ou ator for inserido, alterado ou excluído.
 
 ### Relacionamento N:N: Séries ↔ Atores
 - Um ou mais atores podem participar de uma ou mais séries.
 - Atores são entidades independentes, com ID e nome.
 - Atores vinculados a séries não podem ser excluídos.
 - Séries excluídas também removem seus vínculos com os atores.
-- Implementação de duas **Árvores B+** par indexar:
+- Implementação de duas **Árvores B+** para indexar:
   - (idSerie; idAtor)
   - (idAtor; idSerie)
 
@@ -25,7 +30,7 @@ Nesta nova versão, o PUCFlix mantém as operações de **CRUD** para séries, e
 - **Gabriel Henrique de Morais**
 - **Mateus Martins Parreiras**
 
-## � Estrutura do Projeto
+## 🛠 Estrutura do Projeto
 
 ### 📁 Modelos (Entidade)
 - **Serie.java**: Define a série com seus dados principais.
@@ -53,7 +58,7 @@ Nesta nova versão, o PUCFlix mantém as operações de **CRUD** para séries, e
 
 ## 💡 Desafios de Desenvolvimento
 
-A principal complexidade do TP3 foi a implementação e sincronização do índice invertido para garantir que as buscas por palavras nos títulos das séries, episódios e atores fossem eficientes. Além disso, foi necessário implementar a lógica do TFxIDF para ordenar as buscas com relevância, e garantir que as atualizações no índice invertido ocorressem sempre que uma entidade fosse modificada.
+A principal complexidade do TP3 foi a implementação e sincronização do **índice invertido** para garantir que as buscas por palavras nos títulos das séries, episódios e atores fossem eficientes. Além disso, foi necessário implementar a lógica do **TFxIDF** para ordenar as buscas com relevância, e garantir que as atualizações no índice invertido ocorressem sempre que uma entidade fosse modificada.
 
 ## ✅ Checklist de Funcionalidades
 - [x] O índice invertido com os termos dos títulos das séries foi criado usando a classe ListaInvertida? **SIM**
@@ -71,5 +76,5 @@ A principal complexidade do TP3 foi a implementação e sincronização do índi
 - **Mateus Martins Parreiras**: Adicionar a funcionalidade de busca no menu, integrando a consulta com o índice invertido.
 
 ## 📂 Repositório
-[PUCFlix TP2 no GitHub](https://github.com/GabrielDev0001/ti2_tp3)  
+[PUCFlix TP3 no GitHub](https://github.com/GabrielDev0001/ti2_tp3)  
 Projeto realizado para o Trabalho Prático 3 da disciplina de AEDS 3 — PUC Minas.
