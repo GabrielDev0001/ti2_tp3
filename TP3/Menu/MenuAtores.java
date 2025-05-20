@@ -21,7 +21,7 @@ public class MenuAtores {
         do {
             System.out.println("PUCFlix 1.0");
             System.out.println("----------");
-            System.out.println("> Início > Atores");
+            System.out.println("> Inicio > Atores");
             System.out.println("\n1) Incluir");
             System.out.println("2) Ver Series feitas");
             System.out.println("3) Alterar");

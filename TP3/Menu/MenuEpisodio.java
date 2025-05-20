@@ -25,7 +25,7 @@ public class MenuEpisodio {
         do {
             System.out.println("PUCFlix 1.0");
             System.out.println("----------");
-            System.out.println("> Início > Episódios");
+            System.out.println("> Inicio > Episodios");
             System.out.println("\n1) Incluir");
             System.out.println("2) Buscar");
             System.out.println("3) Alterar");
