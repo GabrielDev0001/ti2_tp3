@@ -1,10 +1,10 @@
-# 🎬 PUCFlix 2..0
+# 🎬 PUCFlix 3..0
 
-PUCFlix é um projeto desenvolvido para o Trabalho Prático 2 da disciplina de **Algoritmos e Estruturas de Dados 3 (AEDS 3)** na **PUC Minas**. Esta versão expande o sistema desenvolvido no TP1, implementando o relacionamento **N:N entre Séries e Atores**, com o uso de **duas Árvores B+** para garantir consultas eficientes e consistência dos dados.
+PUCFlix é um projeto desenvolvido para o Trabalho Prático 3 da disciplina de **Algoritmos e Estruturas de Dados 3 (AEDS 3)** na **PUC Minas**. Esta versão expande o sistema desenvolvido no TP1 e TP2, implementando o **Índice invertido**, com o uso de **Árvores Invertidas** para garantir consultas eficientes e consistência dos dados.
 
 ## 🚀 Funcionalidades
 
-Nesta nova versão, o PUCFlix mantém as operações de **CRUD** para séries e episódios, e agora adiciona:
+Nesta nova versão, o PUCFlix mantém as operações de **CRUD** para séries, episódios, e atores, além de adicionar:
 
 ### Relacionamento N:N: Séries ↔ Atores
 - Um ou mais atores podem participar de uma ou mais séries.
@@ -41,9 +41,10 @@ Nesta nova versão, o PUCFlix mantém as operações de **CRUD** para séries e 
 ### 📁 Controle (Arquivos)
 - **ArquivoSeries.java**: Gerencia o CRUD de séries e seus vínculos com atores.
 - **ArquivoEpisodios.java**: Gerencia o CRUD de episódios, mantendo vínculo com séries.
-- **ArquivoAtores.java**: Gerencia o CRUD d atores, impedindo remoção de atores vinculados.
+- **ArquivoAtores.java**: Gerencia o CRUD de atores, impedindo remoção de atores vinculados.
 - **ArvoreBMais.java**: Implementação de árvore B+ para gerenciar os relacionamentos N:N.
 - **HashExtensivel.java**: Índice direto para acesso rápido aos registros.
+- **ListaInvertida.java**: Implementação do índice invertido para séries, episódios e atores.
 
 ### Principal.java
 - Interface principal do programa:
@@ -52,7 +53,7 @@ Nesta nova versão, o PUCFlix mantém as operações de **CRUD** para séries e 
 
 ## 💡 Desafios de Desenvolvimento
 
-A principal complexidade do TP2 foi a implementação e sincronização das **duas Árvores B+** para garantir que os dados entre séries e atores estivessem sempre consistentes. Além disso, foi necessário tratar a excluão e alteração de forma cuidadosa para manter a integridade dos dados. A lógica para impedir a exclusão de atores com vínculos também exigiu uma verificação cruzada entre estruturas.
+A principal complexidade do TP3 foi a implementação e sincronização do índice invertido para garantir que as buscas por palavras nos títulos das séries, episódios e atores fossem eficientes. Além disso, foi necessário implementar a lógica do TFxIDF para ordenar as buscas com relevância, e garantir que as atualizações no índice invertido ocorressem sempre que uma entidade fosse modificada.
 
 ## ✅ Checklist de Funcionalidades
 - [x] O índice invertido com os termos dos títulos das séries foi criado usando a classe ListaInvertida? **SIM**
@@ -65,10 +66,10 @@ A principal complexidade do TP2 foi a implementação e sincronização das **du
 - [x] O trabalho é original e não a cópia de um trabalho de um colega? **SIM, o trabalho é original.**
 
 ## 📝 Desafios Encontrados
-- **Gabriel Henrique**: Adaptar a lógica da Hash para comportar novas entidades e relembrar conceitos de Java.
-- **Vitor Leite**: Integrar o CRUD de atores mantendo a consistência do relacionamento com as séries.
-- **Mateus Martins Parreiras**: Estender a implementação das árvores B+ para suportar múltiplos relacionamentos e indexações cruzadas.
+- **Gabriel Henrique**: Implementar o índice invertido e garantir a ordem correta das buscas com TFxIDF.
+- **Vitor Leite**: Ajustar a estrutura de dados para garantir consistência entre as entidades e o índice invertido.
+- **Mateus Martins Parreiras**: Adicionar a funcionalidade de busca no menu, integrando a consulta com o índice invertido.
 
 ## 📂 Repositório
-[PUCFlix TP2 no GitHub](https://github.com/GabrielDev0001/aeds3TP_2)  
-Projeto realizado para o Trabalho Prático 2 da disciplina de AEDS 3 — PUC Minas.
+[PUCFlix TP2 no GitHub](https://github.com/GabrielDev0001/ti2_tp3)  
+Projeto realizado para o Trabalho Prático 3 da disciplina de AEDS 3 — PUC Minas.
