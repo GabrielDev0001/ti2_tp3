@@ -265,6 +265,7 @@ public class MenuSeries {
                 }
                 System.out.println("Digite o numero: ");
                 int numSerie = console.nextInt();
+                console.nextLine();
 
                 boolean excluido = arqSeries.delete(serie[numSerie].getId());
 
