@@ -55,16 +55,14 @@ Nesta nova versão, o PUCFlix mantém as operações de **CRUD** para séries e 
 A principal complexidade do TP2 foi a implementação e sincronização das **duas Árvores B+** para garantir que os dados entre séries e atores estivessem sempre consistentes. Além disso, foi necessário tratar a excluão e alteração de forma cuidadosa para manter a integridade dos dados. A lógica para impedir a exclusão de atores com vínculos também exigiu uma verificação cruzada entre estruturas.
 
 ## ✅ Checklist de Funcionalidades
-- [x] As operações de inclusão, busca, alteração e exclusão de atores estão implementadas e funcionando corretamente? **SIM**
-- [x] O relacionamento entre séries e atores foi implementado com árvores B+ e funciona corretamente, assegurando a consistência entre as duas entidades? **SIM**
-- [x] É possível consultar quais são os atores de uma série? **SIM**
-- [x] É possível consultar quais são as séries de um ator? **SIM**
-- [x] A remoção de séries remove os seus vínculos de atores? **SIM**
-- [x] A inclusão de um ator em uma série se limita aos atores existentes? **SIM**
-- [x] A remoção de um ator checa se há alguma série vinculada a ele? **SIM**
-- [x] O trabalho está funcionando corretamente? **SIM**
+- [x] O índice invertido com os termos dos títulos das séries foi criado usando a classe ListaInvertida? **SIM**
+- [x] O índice invertido com os termos dos títulos dos episódios foi criado usando a classe ListaInvertida? **SIM**
+- [x] O índice invertido com os termos dos nomes dos atores foi criado usando a classe ListaInvertida? **SIM**
+- [x] É possível buscar séries por palavras usando o índice invertido? **SIM**
+- [x] É possível buscar episódios por palavras usando o índice invertido? **SIM**
+- [x] É possível buscar atores por palavras usando o índice invertido? **SIM**
 - [x] O trabalho está completo? **SIM**
-- [x] O trabalho é original e não a cópia de um trabalho de outro grupo? **SIM, O trabalho é original!**
+- [x] O trabalho é original e não a cópia de um trabalho de um colega? **SIM, o trabalho é original.**
 
 ## 📝 Desafios Encontrados
 - **Gabriel Henrique**: Adaptar a lógica da Hash para comportar novas entidades e relembrar conceitos de Java.
