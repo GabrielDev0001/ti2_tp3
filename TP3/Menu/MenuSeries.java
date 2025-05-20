@@ -130,16 +130,16 @@ public class MenuSeries {
         do {
             System.out.print("Sinopse: ");
             sinopse = console.nextLine();
-            if(sinopse.length()!=0)
+            if(sinopse.length()==0)
                 System.err.println("a sinopse deve conter pelo menos um caracter.");
-        } while(sinopse.length()!=0);
+        } while(sinopse.length()==0);
 
         do {
             System.out.print("Stream: ");
             stream = console.nextLine();
-            if(stream.length()!=0)
+            if(stream.length()==0)
                 System.err.println("Porfavor, informe onde se encontra a série.");
-        } while(stream.length()!=0);
+        } while(stream.length()==0);
 
         do {
             System.out.print("Data de lançamento (DD/MM/AAAA): ");
