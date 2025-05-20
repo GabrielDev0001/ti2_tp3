@@ -27,12 +27,12 @@ public class ArquivoSeries extends Arquivo<Series> {
     indiceIdAtor_IdSerie = new ArvoreBMais<>(
         ParIdId.class.getConstructor(),
         5,
-        "./dados/episodio/indiceIdEpisodios_IdSerie.db"
+        "./dados/episodio/indiceIdAtors_IdSerie.db"
       );
     indiceIdSerie_IdAtor = new ArvoreBMais<>(
         ParIdId.class.getConstructor(),
         5,
-        "./dados/episodio/indiceIdEpisodios_IdSerie.db"
+        "./dados/atores/indiceIdSeries_IdAtores.db"
       );
     
     }

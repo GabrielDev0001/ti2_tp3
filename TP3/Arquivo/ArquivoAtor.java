@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class ArquivoAtor extends Arquivo<Ator>{
     ArvoreBMais <ParIdAtor> indiceNomeAtor;
+
     ArquivoSeries arqSeries;
 
     public ArquivoAtor() throws Exception {
@@ -17,7 +18,7 @@ public class ArquivoAtor extends Arquivo<Ator>{
     indiceNomeAtor = new ArvoreBMais<>(
       ParIdAtor.class.getConstructor(),
       5,
-      "./dados/ator/atores.db"
+      "./dados/atores/indiceNomeAtores.db"
     );
   }
 
