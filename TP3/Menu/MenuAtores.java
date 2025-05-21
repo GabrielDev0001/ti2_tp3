@@ -23,7 +23,7 @@ public class MenuAtores {
             System.out.println("----------");
             System.out.println("> Inicio > Atores");
             System.out.println("\n1) Incluir");
-            System.out.println("2) Ver Series feitas");
+            System.out.println("2) Buscar Ator");
             System.out.println("3) Alterar");
             System.out.println("4) Excluir");
             System.out.println("0) Voltar ao menu anterior");
@@ -62,7 +62,7 @@ public class MenuAtores {
         int numSerie = 0;
      
         do {
-            System.out.print("\nDigite o nome: ");
+            System.out.print("\nDigite o nome da série: ");
             nome = console.nextLine();  
      
             if(nome.isEmpty())
@@ -71,15 +71,17 @@ public class MenuAtores {
         } while (!nomeAtorValido);
      
         try {
-            Ator[] s = arqAtor.readNome(nome);
+            Series[] s = arqSeries.readNome(nome);
             for (int i = 0; i < s.length; i++) {
                 System.out.println(i + " " + s[i].getNome());
             }
-            System.out.println("Digite o numero(Digite 0 caso não esteja na lista): ");
-            numSerie = console.nextInt();console.nextLine();
+            System.out.println("Digite o numero (Digite 0 caso não esteja na lista): ");
+            numSerie = console.nextInt();
+            console.nextLine();
             if(numSerie != 0){
                 return;
             }
+            
         }catch (Exception e) {
             System.out.println("Erro ao buscar a Ator: " + e.getMessage());
         }
@@ -136,7 +138,7 @@ public class MenuAtores {
 
             int numEp = console.nextInt();console.nextLine();
 
-            boolean excluido = arqAtor.excluirAtor(e[numEp].getId());
+            boolean excluido = arqAtor.delete(e[numEp].getId());
             if (excluido) {
                 System.out.println("Exclusão efetuada com sucesso!");
             } else {
@@ -168,8 +170,9 @@ public class MenuAtores {
                 int d = i+1;
                 System.out.println(d + " " + s[i].getNome());
             }
-            System.out.println("Digite o numero(Digite 0 caso não esteja na lista): ");
-            int num = console.nextInt();console.nextLine();
+            System.out.println("Digite o numero (Digite 0 caso não esteja na lista): ");
+            int num = console.nextInt();
+
             console.nextLine();
             if (num > 0 && s[num] != null) {
                 Series[] d = arqSeries.readAtoSeries(num);

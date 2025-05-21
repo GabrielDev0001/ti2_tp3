@@ -148,7 +148,7 @@ public class MenuEpisodio {
                 Episodio c = new Episodio(nome, dataLancamento, avaliacao, duracao ,temporada, IDserie);
 
                 arqEp.create(c);
-                System.out.println("Episodio incluída com sucesso.");
+                System.out.println("Episodio incluído com sucesso.");
             } catch(Exception e) {
                 System.out.println("Erro do sistema. Não foi possível incluir a Série!");
             }
