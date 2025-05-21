@@ -58,23 +58,20 @@ public class MenuAtores {
     public void incluirAtor() {
         System.out.println("\nInclusão de Ator");
         String nome = "";
-
-        System.out.println("\nBusca de Ator");
-        String descobre;
         boolean nomeAtorValido;
         int numSerie = 0;
      
         do {
             System.out.print("\nDigite o nome: ");
-            descobre = console.nextLine();  
+            nome = console.nextLine();  
      
-            if(descobre.isEmpty())
+            if(nome.isEmpty())
                 return;
             else nomeAtorValido = true;
         } while (!nomeAtorValido);
      
         try {
-            Ator[] s = arqAtor.readNome(descobre);
+            Ator[] s = arqAtor.readNome(nome);
             for (int i = 0; i < s.length; i++) {
                 System.out.println(i + " " + s[i].getNome());
             }
