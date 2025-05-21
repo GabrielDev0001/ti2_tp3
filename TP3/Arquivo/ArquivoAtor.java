@@ -4,7 +4,8 @@ import aed3.*;
 import Entidades.Ator;
 import java.io.File;
 import java.util.ArrayList;
-import aed3.Utilidades;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ArquivoAtor extends Arquivo<Ator>{
     ArvoreBMais <ParIdAtor> indiceNomeAtor;
@@ -16,16 +17,22 @@ public class ArquivoAtor extends Arquivo<Ator>{
 
     new File("./dados/ator").mkdirs();
 
+    indiceNomeAtor = new ArvoreBMais<>(
+      ParIdAtor.class.getConstructor(),
+        5,
+     "./dados/ator/indiceNomeAtores.db"
+    );
+
     indiceInvertidoNomeAtor = new ListaInvertida(
       5,
-      "./dados/ator/indiceNomeAtores.db",
+      "./dados/ator/indiceInvertidoNomeAtor.db",
       "./dados/ator/blocosNomeAtor.db"
     );
   }
 
     public int criarAtor(Ator a) throws Exception{
         int id = super.create(a);
-        a.setID(id);
+        indiceNomeAtor.create(new ParIdAtor(a.getNome(), id));
 
         String[] termos = TextProcessor.tokenizarEFiltrar(a.getNome());
         Map<String, Integer> frequenciaTermos = new HashMap<>();
@@ -35,7 +42,7 @@ public class ArquivoAtor extends Arquivo<Ator>{
         }
 
         for(Map.Entry<String, Integer> entrada : frequenciaTermos.entrySet()) {
-            indiceInvertidoNomeAtor.create(entrada.getKey(), new ElementoLista(id, (float) entrada.getValue()))
+            indiceInvertidoNomeAtor.create(entrada.getKey(), new ElementoLista(id, (float) entrada.getValue()));
         }
     
         return id;
@@ -59,7 +66,7 @@ public class ArquivoAtor extends Arquivo<Ator>{
         }
 
         ArrayList<Map.Entry<Integer, Float>> atoresOrdenados = new ArrayList<>(pontuacoesAtores.entrySet());
-        atoresOrdenados.sort((e1, e2) -> e2.getValue().comparteTo(e1.getValue()));
+        atoresOrdenados.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue()));
 
         ArrayList<Ator> resultadoAtores = new ArrayList<>();
         for(Map.Entry<Integer, Float> entrada : atoresOrdenados) {
