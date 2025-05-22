@@ -61,53 +61,32 @@ public class MenuAtores {
         boolean nomeAtorValido;
         int numSerie = 0;
      
-        do {
-            System.out.print("\nDigite o nome da série: ");
-            nome = console.nextLine();  
-     
-            if(nome.isEmpty())
-                return;
-            else nomeAtorValido = true;
-        } while (!nomeAtorValido);
-     
         try {
-            Series[] s = arqSeries.readNome(nome);
-            for (int i = 0; i < s.length; i++) {
-                System.out.println(i + " " + s[i].getNome());
-            }
-            System.out.println("Digite o numero da série (Digite 0 caso não esteja na lista): ");
-            numSerie = console.nextInt();
-            console.nextLine();
-            if(numSerie == 0){
+            System.out.println("Digite o nome do Ator (Vazio para cancelar): ");
+            String nomeAtor = console.nextLine();
+            if(nomeAtor.isEmpty()) {
                 return;
             }
-            else {
-                System.out.println("Digite o nome do Ator (Vazio para cancelar): ");
-                String nomeAtor = console.nextLine();
-                if(nomeAtor.isEmpty()) {
-                    return;
+            char resp;
+            while(resp != 's' || resp != 'S' || nomeAtor != '0') {
+                System.out.println("Confirma inclusão de Ator? (S/N)");
+                resp = console.nextLine();
+                if(resp == 'S' || resp == 's') {
+                    Ator a = new Ator(nomeAtor);
+                    arqAtor.create(a);
+                    System.out.println("Inclusão efetuada com sucesso!");
                 }
-                char resp;
-                while(resp != 's' || resp != 'S' || nomeAtor != '0') {
-                    System.out.println("Confirma inclusão de Ator? (S/N)");
-                    resp = console.nextLine();
-                    if(resp == 'S' || resp == 's') {
-                        Ator a = new Ator(nomeAtor, numSerie);
-                        arqAtor.create(a);
-                        System.out.println("Inclusão efetuada com sucesso!");
-                    }
-                    else if (resp == 'n' || resp == 'N'){
-                        System.out.println("Digite o nome do Ator (Digite 0 para cancelar a inclusão): ");
-                        nomeAtor = console.nextLine();
-                    }
+                else if (resp == 'n' || resp == 'N'){
+                    System.out.println("Digite o nome do Ator (Digite 0 para cancelar a inclusão): ");
+                    nomeAtor = console.nextLine();
                 }
-                if(nomeAtor == '0') {
-                    System.out.println("Inclusão cancelada com sucesso!");
-                }
+            }
+            if(nomeAtor == '0') {
+                System.out.println("Inclusão cancelada com sucesso!");
             }
             
         }catch (Exception e) {
-            System.out.println("Erro ao buscar a Série: " + e.getMessage());
+            System.out.println("Erro ao incluir o Ator: " + e.getMessage());
         }
     }
 
@@ -191,7 +170,7 @@ public class MenuAtores {
         String nome;
         boolean nomeValido;
         do {
-            System.out.print("\nnome da Ator: ");
+            System.out.print("\nNome do Ator: ");
             nome = console.nextLine();  
             if(nome.isEmpty())
                 return; 
@@ -202,8 +181,20 @@ public class MenuAtores {
         try {
             Ator[] s = arqAtor.readNome(nome);
             for (int i = 0; i < s.length; i++) {
-                System.out.println(i + " " + s[i].getNome());
+                System.out.println(i+1 + " " + s[i].getNome());
             }
+            System.out.println("Digite o número do ator (0 caso não esteja na lista): ");
+            int numAtor = console.nextInt();
+            if(numAtor == 0) {
+                return;
+            }
+            System.out.println("Digite o novo nome do Ator (Vazio para cancelar): ");
+            String novoNome = console.nextLine();
+            if(novoNome.isEmpty()) {
+                return;
+            }
+            s[numAtor-1] = s[numAtor-1].setNome(novoNome);
+            System.out.println("Alteração efetuada com sucesso!");
         } catch (Exception e) {
             System.out.println("Erro do sistema. Não foi possível alterar o Ator!");
             e.printStackTrace();

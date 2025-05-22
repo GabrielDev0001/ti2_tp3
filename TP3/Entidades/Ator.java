@@ -11,18 +11,15 @@ public class Ator implements Registro {
 
     public int id;
     public String nome;
-    public int idserie;
 
-    public Ator (String nome, int idserie){
+    public Ator (String nome){
         this.nome = nome;
         this.id = -1;
-        this.idserie = idserie;
     } 
 
-    public Ator (int id, String nome, int idserie){
+    public Ator (int id, String nome){
         this.id = id;
         this.nome = nome;
-        this.idserie = idserie;
     }
 
     public Ator () {
