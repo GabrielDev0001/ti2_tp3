@@ -57,20 +57,18 @@ public class MenuAtores {
 
     public void incluirAtor() {
         System.out.println("\nInclusão de Ator");
-        String nome = "";
-        boolean nomeAtorValido;
-        int numSerie = 0;
+        String nomeAtor = "";
      
         try {
             System.out.println("Digite o nome do Ator (Vazio para cancelar): ");
-            String nomeAtor = console.nextLine();
+             nomeAtor = console.nextLine();
             if(nomeAtor.isEmpty()) {
                 return;
             }
             char resp;
-            while(resp != 's' || resp != 'S' || nomeAtor != '0') {
+           do {
                 System.out.println("Confirma inclusão de Ator? (S/N)");
-                resp = console.nextLine();
+                resp = console.nextLine().charAt(0);
                 if(resp == 'S' || resp == 's') {
                     Ator a = new Ator(nomeAtor);
                     arqAtor.create(a);
@@ -80,10 +78,8 @@ public class MenuAtores {
                     System.out.println("Digite o nome do Ator (Digite 0 para cancelar a inclusão): ");
                     nomeAtor = console.nextLine();
                 }
-            }
-            if(nomeAtor == '0') {
-                System.out.println("Inclusão cancelada com sucesso!");
-            }
+            } while(resp != 's' || resp != 'S');
+ 
             
         }catch (Exception e) {
             System.out.println("Erro ao incluir o Ator: " + e.getMessage());
@@ -193,7 +189,7 @@ public class MenuAtores {
             if(novoNome.isEmpty()) {
                 return;
             }
-            s[numAtor-1] = s[numAtor-1].setNome(novoNome);
+            s[numAtor-1].setNome(novoNome);
             System.out.println("Alteração efetuada com sucesso!");
         } catch (Exception e) {
             System.out.println("Erro do sistema. Não foi possível alterar o Ator!");
