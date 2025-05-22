@@ -75,8 +75,8 @@ public class MenuAtores {
                     System.out.println("Inclusão efetuada com sucesso!");
                 }
                 else if (resp == 'n' || resp == 'N'){
-                    System.out.println("Digite o nome do Ator (Digite 0 para cancelar a inclusão): ");
-                    nomeAtor = console.nextLine();
+                    System.out.println("Obrigado pela preferencia! ");
+                    return;
                 }
             } while(resp != 's' || resp != 'S');
  
