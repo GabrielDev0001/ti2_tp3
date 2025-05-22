@@ -75,41 +75,40 @@ public class MenuAtores {
             for (int i = 0; i < s.length; i++) {
                 System.out.println(i + " " + s[i].getNome());
             }
-            System.out.println("Digite o numero (Digite 0 caso não esteja na lista): ");
+            System.out.println("Digite o numero da série (Digite 0 caso não esteja na lista): ");
             numSerie = console.nextInt();
             console.nextLine();
-            if(numSerie != 0){
+            if(numSerie == 0){
                 return;
+            }
+            else {
+                System.out.println("Digite o nome do Ator (Vazio para cancelar): ");
+                String nomeAtor = console.nextLine();
+                if(nomeAtor.isEmpty()) {
+                    return;
+                }
+                char resp;
+                while(resp != 's' || resp != 'S' || nomeAtor != '0') {
+                    System.out.println("Confirma inclusão de Ator? (S/N)");
+                    resp = console.nextLine();
+                    if(resp == 'S' || resp == 's') {
+                        Ator a = new Ator(nomeAtor, numSerie);
+                        arqAtor.create(a);
+                        System.out.println("Inclusão efetuada com sucesso!");
+                    }
+                    else if (resp == 'n' || resp == 'N'){
+                        System.out.println("Digite o nome do Ator (Digite 0 para cancelar a inclusão): ");
+                        nomeAtor = console.nextLine();
+                    }
+                }
+                if(nomeAtor == '0') {
+                    System.out.println("Inclusão cancelada com sucesso!");
+                }
             }
             
         }catch (Exception e) {
-            System.out.println("Erro ao buscar a Ator: " + e.getMessage());
+            System.out.println("Erro ao buscar a Série: " + e.getMessage());
         }
-     
-
-        do {
-            System.out.print("\nNome (min. de 4 letras ou vazio para cancelar): ");
-            nome = console.nextLine();
-            nome = format(nome);
-            if(nome.length()==0)
-                return;
-            if(nome.length()<4)
-                System.err.println("O nome do Ator deve ter no mínimo 4 caracteres.");
-        } while(nome.length()<4);
-
-        System.out.println("\nConfirma a inclusão do Ator? (S/N) ");
-        char resp = console.nextLine().charAt(0);
-        if(resp=='S' || resp=='s') {
-            try {
-
-                Ator c = new Ator(nome);
-
-                arqAtor.criarAtor(c);
-                System.out.println("Ator incluído com sucesso.");
-            } catch(Exception e) {
-                System.out.println("Erro do sistema. Não foi possível incluir o ator!");
-            }
-        }else System.out.println("Inclusão cancelada");
     }
 
     //método que remove acentos e passa para minusculo
@@ -121,7 +120,7 @@ public class MenuAtores {
 
     public void excluirAtor() {
         System.out.println("\nExclusão do Ator");
-        System.out.print("\nDigite o nome da Ator: ");
+        System.out.print("\nDigite o nome do Ator: ");
 
         String nome = console.nextLine();
 
