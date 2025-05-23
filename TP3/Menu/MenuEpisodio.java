@@ -76,7 +76,7 @@ public class MenuEpisodio {
         boolean nomeserieValido = false;
      
         do {
-            System.out.print("\nDigite o nome: ");
+            System.out.print("\nDigite o nome da série: ");
             descobre = console.nextLine();  
      
             if(descobre.isEmpty())
@@ -89,7 +89,7 @@ public class MenuEpisodio {
             for (int i = 0; i < s.length; i++) {
                 System.out.println(i + " " + s[i].getNome());
             }
-            System.out.println("Digite o numero: ");
+            System.out.println("Digite o numero da série: ");
             int numSerie = console.nextInt();
             IDserie = s[numSerie].getId();
         }catch (Exception e) {
@@ -150,7 +150,7 @@ public class MenuEpisodio {
                 arqEp.create(c);
                 System.out.println("Episodio incluído com sucesso.");
             } catch(Exception e) {
-                System.out.println("Erro do sistema. Não foi possível incluir a Série!");
+                System.out.println("Erro do sistema. Não foi possível incluir o Episódio!");
             }
         }
     }

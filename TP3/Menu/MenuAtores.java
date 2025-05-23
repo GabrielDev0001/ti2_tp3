@@ -102,17 +102,15 @@ public class MenuAtores {
         try {
             Ator[] s = arqAtor.readNome(nome);
             for (int i = 0; i < s.length; i++) {
-                System.out.println(i + " " + s[i].getNome());
+                System.out.println(i+1 + " " + s[i].getNome());
             }
-            Ator[] e = arqAtor.readNome(nome);
-
-            for (int i = 0; i < e.length; i++) {
-                System.out.println(i + " " + e[i].getNome());
+            System.out.println("Digite o número correspondente (0 para cancelar): ");
+            int numAtor = console.nextInt();console.nextLine();
+            if(numAtor == 0) {
+                return;
             }
 
-            int numEp = console.nextInt();console.nextLine();
-
-            boolean excluido = arqAtor.delete(e[numEp].getId());
+            boolean excluido = arqAtor.delete(s[numAtor].getId());
             if (excluido) {
                 System.out.println("Exclusão efetuada com sucesso!");
             } else {
