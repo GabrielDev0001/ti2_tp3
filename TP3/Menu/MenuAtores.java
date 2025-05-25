@@ -66,20 +66,17 @@ public class MenuAtores {
                 return;
             }
             char resp;
-           do {
-                System.out.println("Confirma inclusão de Ator? (S/N)");
-                resp = console.nextLine().charAt(0);
-                if(resp == 'S' || resp == 's') {
-                    Ator a = new Ator(nomeAtor);
-                    arqAtor.create(a);
-                    System.out.println("Inclusão efetuada com sucesso!");
-                }
-                else if (resp == 'n' || resp == 'N'){
-                    System.out.println("Obrigado pela preferencia! ");
-                    return;
-                }
-            } while(resp != 's' || resp != 'S');
- 
+            System.out.println("Confirma inclusão de Ator? (S/N)");
+            resp = console.nextLine().charAt(0);
+            if(resp == 'S' || resp == 's') {
+                Ator a = new Ator(nomeAtor);
+                arqAtor.create(a);
+                System.out.println("Inclusão efetuada com sucesso!");
+            }
+            else if (resp == 'n' || resp == 'N'){
+                System.out.println("Obrigado pela preferencia! ");
+                return;
+            }
             
         }catch (Exception e) {
             System.out.println("Erro ao incluir o Ator: " + e.getMessage());
