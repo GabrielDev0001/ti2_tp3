@@ -141,6 +141,7 @@ public class MenuAtores {
             }
             System.out.println("Digite o numero (Digite 0 caso não esteja na lista): ");
             int num = console.nextInt();
+            num --;
 
             console.nextLine();
             if (num > 0 && s[num] != null) {

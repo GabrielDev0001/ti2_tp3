@@ -39,8 +39,8 @@ public class ArquivoSeries extends Arquivo<Series> {
         );
     }
 
-    @Override
-    public int create(Series s) throws Exception {
+    
+    public int createSerie(Series s) throws Exception {
         int id = super.create(s);
 
         // Indexar nome da série na lista invertida
@@ -61,6 +61,7 @@ public class ArquivoSeries extends Arquivo<Series> {
     public Series[] readNome(String consulta) throws Exception {
         String[] termos = TextProcessor.tokenizarEFiltrar(consulta);
         Map<Integer, Float> pontuacoes = new HashMap<>();
+        
 
         for (String termo : termos) {
             ElementoLista[] elementos = indiceInvertidoNomeSerie.read(termo);

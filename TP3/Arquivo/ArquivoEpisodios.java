@@ -31,8 +31,8 @@ public class ArquivoEpisodios extends Arquivo<Episodio> {
     );
   }
 
-  @Override
-  public int create(Episodio e) throws Exception {
+  
+  public int createEpi(Episodio e) throws Exception {
     if (!ArquivoSeries.serieExiste(e.getIDSerie()))
       throw new Exception("Episodio não pode ser criado pois a serie vinculada não existe");
 

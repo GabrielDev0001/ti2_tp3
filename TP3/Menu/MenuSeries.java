@@ -158,7 +158,7 @@ public class MenuSeries {
         if(resp=='S' || resp=='s') {
             try {
                 Series c = new Series(nome, sinopse, dataNascimento, stream);
-                arqSeries.create(c);
+                arqSeries.createSerie(c);
                 System.out.println("Série incluída com sucesso.");
             } catch(Exception e) {
                 System.out.println("Erro do sistema. Não foi possível incluir a Série!");
