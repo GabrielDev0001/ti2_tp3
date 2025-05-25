@@ -70,7 +70,7 @@ public class MenuAtores {
             resp = console.nextLine().charAt(0);
             if(resp == 'S' || resp == 's') {
                 Ator a = new Ator(nomeAtor);
-                arqAtor.create(a);
+                arqAtor.criarAtor(a);
                 System.out.println("Inclusão efetuada com sucesso!");
             }
             else if (resp == 'n' || resp == 'N'){
